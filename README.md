@@ -14,23 +14,32 @@ A simple **Task Management Dashboard** built with **React**. This app allows use
 ## Demo
 
 You can view the live demo here:  
-[**Live Demo**](#) *(optional link)*
+[**Live Demo**](https://kanban-board-dashboard.netlify.app/)
 
 ## Instructions to Run Locally
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/task-management-dashboard.git
+   git clone https://github.com/Lokesh516/kanban-dashboard.git
 
 2. **Navigate to the project folder**:
 
-   cd task-management-dashboard
+   cd kanban-dashboard
 
-3. **Install dependencies: Run the following command to install the necessary dependencies**:
+3. **Set up environment variables**:
+
+   Create a .env file in the root of your project and add:
+
+   VITE_API_URL=http://localhost:5000
+
+   This is the base URL of your mock API (like json-server) used in development.
+
+
+4. **Install dependencies: Run the following command to install the necessary dependencies**:
 
     npm install
 
-4. **Start the application: After installation is complete, you can start the app with**:
+5. **Start the application: After installation is complete, you can start the app with**:
  
     npm start
 
@@ -75,7 +84,7 @@ The **Task Management Dashboard** is built using **React** for the front end and
 
 ### API Integration
 
-The app uses a mock API (such as **json-server** or **JSONPlaceholder**) to persist the tasks. The tasks are fetched and stored using API calls to simulate real-time data handling.
+  The app uses a mock API (such as **json-server** or **JSONPlaceholder**) to persist the tasks. The tasks are fetched and stored using API calls to simulate real-time data handling.
 
 
 

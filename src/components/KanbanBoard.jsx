@@ -21,25 +21,13 @@ function KanbanBoard() {
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    // Fetch tasks from the API when the component mounts
     axios.get(`${API_URL}/tasks`)
       .then((response) => {
-        const data = response.data;
-  
-        // Handle both local and production API formats:
-        // If response is an array then use directly
-        // If response has a "tasks" key then extract tasks from it
-        const tasksArray = Array.isArray(data) ? data : data.tasks;
-  
-        // Update state with the fetched tasks
-        setTasks(tasksArray);
+        const data = Array.isArray(response.data) ? response.data : response.data.tasks;
+        setTasks(data);
       })
-      .catch((err) => {
-        // Log any error that occurs during API call
-        console.error("Error fetching tasks:", err);
-      });
+      .catch((err) => console.error("Error fetching tasks:", err));
   }, [API_URL]);
-  
 
   // Handle adding a new task
   const handleAddTask = (newTask) => {
