@@ -1,0 +1,97 @@
+/* ===== BASE STYLES ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+  }
+  
+  .kanban-board {
+    display: flex;
+    flex-wrap: wrap; /* ✅ Wrap columns instead of scrolling */
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  .kanban-column {
+    flex: 1 1 300px; /* ✅ Responsive width, min 300px */
+    max-width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .column-header {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .task {
+    background: #fff;
+    border-left: 3px solid #4caf50;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* ===== ADD TASK BUTTON ===== */
+  .add-task-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-task-btn:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* ===== TABLET & UP ===== */
+  @media (min-width: 768px) {
+    .kanban-board {
+      justify-content: space-between;
+    }
+  
+    .kanban-column {
+      flex: 1 1 30%; /* 3 columns per row on medium and up */
+    }
+  
+    .add-task-btn {
+      width: auto;
+      position: relative;
+    }
+  }
+  
+  /* ===== DESKTOP (1024px AND UP) ===== */
+  @media (min-width: 1024px) {
+    .kanban-board {
+      justify-content: space-between;
+      width: 100vw;
+      max-width: 100%;
+    }
+  
+    .kanban-column {
+      flex: 1 1 0; /* Stretch all 3 equally */
+      min-width: 300px;
+    }
+  }
+  
+  
+  
