@@ -19,10 +19,12 @@ function KanbanBoard() {
   // Task status categories (columns)
   const statuses = ["To Do", "In Progress", "Done"];
   const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     axios.get(`${API_URL}/tasks`)
       .then((response) => {
-        setTasks(response.data);
+        const data = Array.isArray(response.data) ? response.data : response.data.tasks;
+        setTasks(data);
       })
       .catch((err) => console.error("Error fetching tasks:", err));
   }, [API_URL]);
@@ -31,7 +33,8 @@ function KanbanBoard() {
   const handleAddTask = (newTask) => {
     axios.post(`${API_URL}/tasks`, newTask)
       .then((response) => {
-        setTasks([...tasks, response.data]);
+        const addedTask = Array.isArray(response.data) ? response.data[0] : response.data;
+        setTasks([...tasks, addedTask]);
         setShowModal(false);
       })
       .catch((err) => console.error("Error adding task:", err));
@@ -61,8 +64,9 @@ function KanbanBoard() {
   const handleUpdateTask = (updatedTask) => {
     axios.put(`${API_URL}/tasks/${updatedTask.id}`, updatedTask)
       .then((response) => {
+        const updatedData = Array.isArray(response.data) ? response.data[0] : response.data;
         const updatedTasks = tasks.map((task) =>
-          task.id === updatedTask.id ? response.data : task
+          task.id === updatedTask.id ? updatedData : task
         );
         setTasks(updatedTasks);
         setEditingTask(null);
