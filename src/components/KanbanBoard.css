@@ -12,7 +12,7 @@
   
   .kanban-board {
     display: flex;
-    flex-wrap: wrap; /* ✅ Wrap columns instead of scrolling */
+    flex-wrap: wrap; 
     gap: 1rem;
     padding: 1rem;
     width: 100%;
@@ -21,7 +21,7 @@
   }
   
   .kanban-column {
-    flex: 1 1 300px; /* ✅ Responsive width, min 300px */
+    flex: 1 1 300px; 
     max-width: 100%;
     background: white;
     border-radius: 8px;
@@ -70,7 +70,7 @@
     }
   
     .kanban-column {
-      flex: 1 1 30%; /* 3 columns per row on medium and up */
+      flex: 1 1 30%; 
     }
   
     .add-task-btn {
@@ -88,7 +88,7 @@
     }
   
     .kanban-column {
-      flex: 1 1 0; /* Stretch all 3 equally */
+      flex: 1 1 0; 
       min-width: 300px;
     }
   }
