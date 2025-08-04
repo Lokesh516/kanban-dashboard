@@ -10,7 +10,7 @@ function TaskModal({ onClose, onSubmit }) {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // Title is required
     if (!title) return alert("Title is required");
